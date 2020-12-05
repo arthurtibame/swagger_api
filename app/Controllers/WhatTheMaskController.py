@@ -1,7 +1,7 @@
 from app import ns_WhatTheMask
 from flask import request
 from flask_restplus import Resource
-from app.Services.WhatTheMaskService import db_insert_log
+from app.Services.WhatTheMaskService import WhatTheMaskService
 from app.Expects.WhatTheMaskExpect import insert_user_data
 from app.utils.decorator import token_required
 
@@ -11,4 +11,4 @@ class Log(Resource):
     @ns_WhatTheMask.expect(insert_user_data)
     @token_required
     def post(self, **kwargs):            
-        return db_insert_log(request.json)  
+        return WhatTheMaskService.db_insert_log(request.json)  

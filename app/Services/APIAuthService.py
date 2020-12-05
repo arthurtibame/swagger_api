@@ -9,22 +9,48 @@ from app.utils.secrets import WhatTheMaskScret
 from cryptography.fernet import Fernet
 
 class APIAuthSerivce:
-
     @staticmethod
     def db_insert_key():
+        """[summary]
+        Returns:
+            [dict]: [return token to the user calling api 
+                     and also insert the generated has key to db
+                    ]
+            [web status]:  [200 (successful)]                    
+        """
         hashkey = APIAuth.generate_hash_key()
         APIAuth(key=hashkey).add()    
         return {"token": hashkey.decode()}, 200
 
     @staticmethod
     def db_check_token(token):
+        """[summary]
+
+        Args:
+            token ([byte]): [the key from the user sent if the format is available]
+
+        Returns:
+            [boolean]: [if the key is the right format return True else False]
+        """
         try:                    
-            return True if APIAuth.key_check(token) else False
+            return True if APIAuth.check_key(token) else False
         except Exception as e:
             return False
     
     @staticmethod
-    def key_check(key):
+    def check_key(key):
+        """[summary]
+
+        Args:
+            key ([byte]): [the key from user sent]
+
+        Returns:
+            [Boolean]: [if the format is timestamp/app then return True else false]
+        
+        Notes:
+            In the future, if adding the  namespace of api which is calling from PC user  then adding 
+            the rule here ->　Timestamp/web ...etc
+        """
         try:
             # check key format
             f = Fernet(WhatTheMaskScret)
