@@ -14,12 +14,14 @@ api = Api(app = flask_app,
 
 # Register namespace
 ns_WhatTheMask = api.namespace('WhatTheMask', description='WhatTheMask android app APIs')
+ns_RabbitMQ = api.namespace('RabbitMQ', description='WhatTheMask android app APIs')
 ns_APIAuth = api.namespace('auth', description='Auth')
 
 # Db connector
 db = SQLAlchemy(flask_app)
 
-from app.Controllers import WhatTheMaskController, APIAuthController
+from app.Controllers import WhatTheMaskController, APIAuthController, RabbitMQController
 from app.Expects import WhatTheMaskExpect
-from app.Models import WhatTheMaskModel, APIAuthModel
-from app.Services import WhatTheMaskService, APIAuthService
+from app.Models import WhatTheMaskModel, APIAuthModel, RabbitMQModel
+from app.Services import WhatTheMaskService, APIAuthService, RabbitMQService
+

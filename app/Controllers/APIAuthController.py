@@ -9,3 +9,6 @@ class GenerateToken(Resource):
     @generate_token_check  
     def get(self, **kwargs):            
         return APIAuthSerivce.db_insert_key() 
+    @generate_token_check  
+    def post(self, **kwargs):            
+        return APIAuthSerivce.db_insert_key() 
