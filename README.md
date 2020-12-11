@@ -4,4 +4,7 @@
 --
 - [x] /WhatTheMask/insert_log (token required)
 - [x] /auth/token (key required, and generate token)
-- [ ] token expired
+- [x] token expired
+- [x] UI with nginx
+- [x] docker-compose.yaml
+- [x] nginx save logs

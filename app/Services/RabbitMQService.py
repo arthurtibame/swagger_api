@@ -1,9 +1,6 @@
 from app.Models.RabbitMQModel import RabbitMQModel
 from datetime import datetime
 
-
-
-
 class RabbitMQService:
     @staticmethod
     def publish(json_data):

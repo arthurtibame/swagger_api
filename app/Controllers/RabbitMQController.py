@@ -5,7 +5,6 @@ from app.Services.RabbitMQService import RabbitMQService
 from app.Expects.WhatTheMaskExpect import insert_user_data
 from app.utils.decorator import token_required
 
-
 @ns_RabbitMQ.route('/insert_log')
 class Log(Resource):
     @ns_RabbitMQ.expect(insert_user_data)
