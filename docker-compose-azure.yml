@@ -1,0 +1,25 @@
+version: '3'
+services:
+    app:
+        build: ./
+        image: arthurtibame/swagger_api:v5
+        depends_on: 
+          - mysql_db
+        ports:
+          - "80:80"
+    mysql_db:
+        image: mysql:5.6
+        restart: always
+        ports:
+            - 3306:3306
+        volumes:
+            - ${WEBAPP_STORAGE_HOME}/db-init/init.sql:/docker-entrypoint-initdb.d/init.sql
+            - ${WEBAPP_STORAGE_HOME}/mysql-data:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: 2020aiot
+            MYSQL_DATABASE: android_app
+            MYSQL_USER: modovision
+            MYSQL_PASSWORD: 2020aiot
+    
+#volumes:
+#    mysql-data: 

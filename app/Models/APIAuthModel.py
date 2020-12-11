@@ -8,8 +8,8 @@ class APIAuth(db.Model):
     __tablename__  = 'APIAuth'
     id = db.Column(db.Integer,primary_key=True)
     key = db.Column(db.LargeBinary)    
-    CreateTime = db.Column(db.DateTime, default=datetime.utcnow)
-    ModifyTime = db.Column(db.DateTime, default=datetime.utcnow)
+    createtime = db.Column(db.DateTime, default=datetime.utcnow)
+    modifytime = db.Column(db.DateTime, default=datetime.utcnow)
     
     def __init__(self, key):
         self.key = key

@@ -3,7 +3,11 @@ from flask_restplus import fields
 
 insert_user_data = ns_WhatTheMask.model("Insert_user_data",
                                  {
-                                    "label": 
+                                     "userid": 
+fields.String(description="label", required=True),
+                                     "label": 
+fields.String(description="label", required=True),
+                                     "location": 
 fields.String(description="label", required=True),
                                     "latitude": 
 fields.String(description="latitude", required=True),

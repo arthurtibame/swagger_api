@@ -11,4 +11,4 @@ class Log(Resource):
     @ns_WhatTheMask.expect(insert_user_data)
     @token_required
     def post(self, **kwargs):            
-        return db_insert_log(request.json)  
+        return db_insert_log(request)  
